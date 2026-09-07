@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.venv-vscode/
+venv/
+
+# Local configuration/secrets
+.env
+.env.*
+!.env.example
+
+# Generated data and runtime artifacts
+data/raw/*
+data/processed/*
+data/*.db
+logs/*
+models/*
+reports/figures/*
+reports/generated/*
+
+# Keep directory structure in Git
+!.gitkeep
+
+# Figures are small, derived presentation artifacts used by the GitHub README.
+!reports/figures/*.png
+!reports/figures/*.svg
+!reports/figures/notebook/
+!reports/figures/notebook/*.png
+
+# Tooling caches (the shared .vscode configuration is part of the project)
+.pytest_cache/
+.mypy_cache/
+.matplotlib-cache/
+.streamlit/credentials.toml

@@ -1,0 +1,107 @@
+{
+  "status": "ok",
+  "renderer": "matplotlib-seaborn",
+  "run_at": "2026-09-07T17:30:01.056866+00:00",
+  "source": "Gol.gg via local SQLite",
+  "season": "S16",
+  "cutoff_start": "2026-01-01",
+  "team_game_rows": 1248,
+  "player_game_rows": 5397,
+  "selected_team_ids": [
+    2809,
+    2805
+  ],
+  "figures": [
+    {
+      "file": "reports/figures/01_missingness_heatmap.png",
+      "question": "Metric nào còn thiếu dữ liệu?",
+      "chart_type": "aggregated missingness heatmap",
+      "sample": "team n=1248, player n=5397"
+    },
+    {
+      "file": "reports/figures/02_team_win_rate_lollipop.png",
+      "question": "Đội nào có tỷ lệ thắng cao nhất?",
+      "chart_type": "lollipop",
+      "sample": "1248 primary-team game rows"
+    },
+    {
+      "file": "reports/figures/03_economy_vs_win_scatter.png",
+      "question": "GPM và win rate có quan hệ như thế nào?",
+      "chart_type": "annotated bubble scatter",
+      "sample": "10 teams, bubble size = games"
+    },
+    {
+      "file": "reports/figures/04_team_metric_profile_heatmap.png",
+      "question": "Mỗi đội nổi trội ở nhóm metric nào?",
+      "chart_type": "standardized heatmap",
+      "sample": "10 primary teams; standardized per metric"
+    },
+    {
+      "file": "reports/figures/05_player_dpm_boxplot_by_role.png",
+      "question": "DPM distribution khác nhau theo role ra sao?",
+      "chart_type": "boxplot",
+      "sample": "5397 current-starter game rows"
+    },
+    {
+      "file": "reports/figures/06_player_kda_violin_by_role.png",
+      "question": "KDA distribution khác nhau theo role ra sao?",
+      "chart_type": "violin plot",
+      "sample": "5397 rows; display-only p99 clipping"
+    },
+    {
+      "file": "reports/figures/07_side_outcome_stacked.png",
+      "question": "Side và match result liên hệ mô tả ra sao?",
+      "chart_type": "100% stacked bar",
+      "sample": "n=1248 team-game rows"
+    },
+    {
+      "file": "reports/figures/08_team_correlation_heatmap.png",
+      "question": "Metric nào có tương quan tuyến tính?",
+      "chart_type": "lower-triangle correlation heatmap",
+      "sample": "n=1248; correlation is not causation"
+    },
+    {
+      "file": "reports/figures/09_rolling_form_small_multiples.png",
+      "question": "Recent form của 10 đội biến động ra sao?",
+      "chart_type": "sequential small multiples",
+      "sample": "10 teams; rolling window=5; x=game order"
+    },
+    {
+      "file": "reports/figures/10_champion_pool_bubble.png",
+      "question": "Champion usage và win rate cân bằng thế nào?",
+      "chart_type": "bubble scatter",
+      "sample": "champions with n>=8; size=average DPM"
+    },
+    {
+      "file": "reports/figures/11_tournament_context_heatmap.png",
+      "question": "Đội thể hiện khác nhau theo loại giải ra sao?",
+      "chart_type": "grouped heatmap",
+      "sample": "all official S16 tournaments involving primary LCK teams"
+    },
+    {
+      "file": "reports/figures/12_role_baseline_heatmap.png",
+      "question": "Baseline metric khác nhau tự nhiên theo role thế nào?",
+      "chart_type": "standardized role heatmap",
+      "sample": "5397 current-starter game rows"
+    },
+    {
+      "file": "reports/figures/13_selected_team_dumbbell.png",
+      "question": "Hai đội khác nhau ở feature nào?",
+      "chart_type": "standardized dumbbell",
+      "sample": "team IDs 2809 vs 2805"
+    },
+    {
+      "file": "reports/figures/14_role_matchup_heatmap.png",
+      "question": "Từng cặp cùng role có điểm mạnh/yếu nào?",
+      "chart_type": "within-role standardized heatmap",
+      "sample": "current starters for team IDs 2809 vs 2805"
+    }
+  ],
+  "interpretation_rules": [
+    "Percentages are presented with sample size.",
+    "Outlier clipping is display-only and never mutates source data.",
+    "Correlation is descriptive, not causal.",
+    "Cross-role raw player metrics are not used for ability ranking.",
+    "Champion win rate requires a minimum game denominator in the bubble view."
+  ]
+}

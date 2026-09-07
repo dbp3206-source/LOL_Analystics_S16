@@ -1,0 +1,15 @@
+{
+  "status": "ok",
+  "source_url": "https://lol.fandom.com/api.php?action=parse&page=LCK%2F2026_Season%2FSeason_Play-In&prop=text&format=json",
+  "source_urls": [
+    "https://lol.fandom.com/api.php?action=parse&page=LCK%2F2026_Season%2FRounds_1-2&prop=text&format=json",
+    "https://lol.fandom.com/api.php?action=parse&page=LCK%2F2026_Season%2FRoad_to_MSI&prop=text&format=json",
+    "https://lol.fandom.com/api.php?action=parse&page=LCK%2F2026_Season%2FRounds_3-4&prop=text&format=json",
+    "https://lol.fandom.com/api.php?action=parse&page=LCK%2F2026_Season%2FSeason_Play-In&prop=text&format=json",
+    "https://lol.fandom.com/api.php?action=parse&page=LCK%2F2026_Season%2FSeason_Playoffs&prop=text&format=json"
+  ],
+  "collected_at": "2026-09-07T17:05:26.088856+00:00",
+  "fixtures_seen": 3,
+  "fixtures_upserted": 3,
+  "fixtures_skipped": 0
+}

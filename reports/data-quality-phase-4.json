@@ -1,0 +1,100 @@
+{
+  "phase": "Phase 4 — Cleaning and data quality",
+  "run_at": "2026-09-07T17:29:36.917266+00:00",
+  "season": "S16",
+  "season_start_date": "2026-01-01",
+  "database": "data/lol_analytics.db",
+  "cleaning": {
+    "teams": 0,
+    "players": 0,
+    "champions": 0,
+    "player_roles": 0
+  },
+  "checks": [
+    {
+      "check_name": "season_scope_games",
+      "table_name": "games",
+      "passed": true,
+      "affected_rows": 0,
+      "details": "played_at must be >= 2026-01-01"
+    },
+    {
+      "check_name": "game_two_teams_and_winner",
+      "table_name": "games",
+      "passed": true,
+      "affected_rows": 0,
+      "details": "each completed game needs two distinct teams and one winner"
+    },
+    {
+      "check_name": "team_stats_two_rows_per_game",
+      "table_name": "team_game_stats",
+      "passed": true,
+      "affected_rows": 0,
+      "details": "each game must have exactly two team stat rows"
+    },
+    {
+      "check_name": "starting_lineup_five_per_team",
+      "table_name": "player_game_stats",
+      "passed": true,
+      "affected_rows": 0,
+      "details": "each team in a completed game must have exactly five player rows"
+    },
+    {
+      "check_name": "current_roster_five_players",
+      "table_name": "roster_periods",
+      "passed": true,
+      "affected_rows": 0,
+      "details": "each tracked current roster must expose five starters"
+    },
+    {
+      "check_name": "player_numeric_ranges",
+      "table_name": "player_game_stats",
+      "passed": true,
+      "affected_rows": 0,
+      "details": "kills/deaths/assists/cs/kda cannot be negative"
+    },
+    {
+      "check_name": "team_economy_metric_ranges",
+      "table_name": "team_game_stats",
+      "passed": true,
+      "affected_rows": 0,
+      "details": "GPM is positive and GDM is stored in gold per minute, not total gold difference"
+    },
+    {
+      "check_name": "academy_challenger_exclusion",
+      "table_name": "teams",
+      "passed": true,
+      "affected_rows": 0,
+      "details": "primary LCK dataset must not contain Academy/Challengers teams; external opponents may be retained as non-primary dimensions"
+    },
+    {
+      "check_name": "role_domain",
+      "table_name": "players",
+      "passed": true,
+      "affected_rows": 0,
+      "details": "roles normalized to TOP/JUNGLE/MID/BOT/SUPPORT"
+    },
+    {
+      "check_name": "timeline_event_ranges",
+      "table_name": "timeline_events",
+      "passed": true,
+      "affected_rows": 0,
+      "details": "timeline timestamps use non-negative minutes and seconds in [0,59]"
+    },
+    {
+      "check_name": "draft_actions_are_unique",
+      "table_name": "drafts",
+      "passed": true,
+      "affected_rows": 0,
+      "details": "one champion can appear at most once per side/action type on a game summary"
+    },
+    {
+      "check_name": "draft_ten_picks_ten_bans",
+      "table_name": "drafts",
+      "passed": true,
+      "affected_rows": 0,
+      "details": "a parsed completed draft contains ten picks and ten bans"
+    }
+  ],
+  "status": "passed"
+}

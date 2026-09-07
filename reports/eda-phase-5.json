@@ -1,0 +1,25 @@
+{
+  "phase": "Phase 5 — EDA and feature engineering",
+  "run_at": "2026-09-07T17:29:39.246348+00:00",
+  "season": "S16",
+  "database": "data/lol_analytics.db",
+  "team_rows": 10,
+  "player_rows": 50,
+  "rolling_rows": 1248,
+  "outputs": [
+    "data/processed/team_summary.csv",
+    "data/processed/player_summary.csv",
+    "data/processed/rolling_form.csv",
+    "data/processed/champion_pool.csv",
+    "data/processed/team_side_summary.csv",
+    "data/processed/objective_timing.csv"
+  ],
+  "champion_rows": 127,
+  "side_rows": 20,
+  "objective_timing_rows": 50,
+  "notes": [
+    "Metrics include sample size (games) and leave unavailable source fields as null.",
+    "Champion win rates include game denominators and a small-sample warning.",
+    "Interpret the refreshed S16 snapshot with its recorded data cutoff; continue daily incremental updates while the season is active."
+  ]
+}

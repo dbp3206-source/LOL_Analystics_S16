@@ -1,0 +1,5 @@
+# Minimal dependency set for the Phase 2 web-source audit and scraper prototype.
+# Install this set when the full scientific stack is not available for the local
+# Python build; the complete stack remains declared in requirements.txt.
+requests==2.32.4
+beautifulsoup4==4.13.4

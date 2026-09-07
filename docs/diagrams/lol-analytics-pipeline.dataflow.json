@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "diagram_type": "dataflow",
+  "meta": {
+    "title": "LoL Pro Analytics S16 — Data Workflow",
+    "subtitle": "Daily web data to auditable DA/DS outputs",
+    "output": "docs/diagrams/lol-analytics-pipeline.html",
+    "viewBox": [1140, 760],
+    "visual_preset": "classic",
+    "quality_profile": "showcase",
+    "views": [
+      {
+        "id": "request-to-insight",
+        "label": "Request to insight",
+        "focus": ["user-query", "mode-router", "analysis-contract", "eda-compare", "dashboard-report"],
+        "note": "A question selects the analysis mode, evidence grain, comparison logic, and final presentation."
+      },
+      {
+        "id": "stats-lineage",
+        "label": "Statistics lineage",
+        "focus": ["golgg", "stats-scraper", "raw-sqlite", "stats-model", "dashboard-report"],
+        "note": "Gol.gg statistics remain traceable from archived HTML through validated SQLite facts to analysis outputs."
+      },
+      {
+        "id": "fixture-safety",
+        "label": "Fixture safety",
+        "focus": ["schedule-source", "fixture-parser", "fixture-table", "schedule-match", "prediction-output"],
+        "note": "A prediction is official only when a future fixture and a fresh temporal cutoff are both valid."
+      }
+    ]
+  },
+  "stages": [
+    {"label": "Inputs"},
+    {"label": "Collect"},
+    {"label": "Store & govern"},
+    {"label": "Analyze"},
+    {"label": "Deliver"}
+  ],
+  "nodes": [
+    {"id": "user-query", "type": "frontend", "label": "Analysis request", "sublabel": "1 team/player or comparison", "stage": 0, "row": 0, "width": 144, "tag": "question first"},
+    {"id": "golgg", "type": "external", "label": "Gol.gg", "sublabel": "primary S16 statistics", "stage": 0, "row": 2, "width": 142, "tag": "main source"},
+    {"id": "schedule-source", "type": "external", "label": "Leaguepedia", "sublabel": "supplemental fixtures", "stage": 0, "row": 4, "width": 142, "tag": "schedule only"},
+    {"id": "mode-router", "type": "backend", "label": "Mode & scope", "sublabel": "entity, season, cutoff", "stage": 1, "row": 0, "width": 146, "tag": "S16 contract"},
+    {"id": "stats-scraper", "type": "backend", "label": "Stats scraper", "sublabel": "cache, retry, rate limit", "stage": 1, "row": 2, "width": 146, "tag": "incremental"},
+    {"id": "fixture-parser", "type": "backend", "label": "Fixture parser", "sublabel": "UTC normalization", "stage": 1, "row": 4, "width": 146, "tag": "supplement"},
+    {"id": "analysis-contract", "type": "security", "label": "Analysis contract", "sublabel": "grain and metric rules", "stage": 2, "row": 0, "width": 152, "tag": "no overclaim"},
+    {"id": "raw-sqlite", "type": "database", "label": "Raw + SQLite", "sublabel": "archive, facts, dimensions", "stage": 2, "row": 2, "width": 152, "tag": "12 QA gates"},
+    {"id": "fixture-table", "type": "database", "label": "Fixture table", "sublabel": "future schedule rows", "stage": 2, "row": 4, "width": 144, "tag": "UTC"},
+    {"id": "eda-compare", "type": "backend", "label": "EDA & compare", "sublabel": "Pandas, NumPy, charts", "stage": 3, "row": 0, "width": 152, "tag": "DA"},
+    {"id": "stats-model", "type": "backend", "label": "Stats & model", "sublabel": "CI, Logit, walk-forward", "stage": 3, "row": 2, "width": 152, "tag": "DS"},
+    {"id": "schedule-match", "type": "security", "label": "Fixture check", "sublabel": "future + freshness", "stage": 3, "row": 4, "width": 146, "tag": "anti-leakage"},
+    {"id": "dashboard-report", "type": "frontend", "label": "Dashboard & report", "sublabel": "tables, figures, evidence", "stage": 4, "row": 1, "width": 158, "tag": "explainable"},
+    {"id": "prediction-output", "type": "frontend", "label": "Prediction output", "sublabel": "official or hypothetical", "stage": 4, "row": 3, "width": 158, "tag": "uncertainty"}
+  ],
+  "flows": [
+    {"id": "query-scope", "from": "user-query", "to": "mode-router", "label": "analysis intent", "classification": "user input", "variant": "emphasis", "route": "straight", "labelAt": [210, 200]},
+    {"id": "scope-contract", "from": "mode-router", "to": "analysis-contract", "label": "validated scope", "classification": "S16 only", "variant": "security", "route": "straight", "labelAt": [421, 200]},
+    {"id": "contract-eda", "from": "analysis-contract", "to": "eda-compare", "label": "metric contract", "classification": "same grain", "variant": "emphasis", "route": "straight", "labelAt": [638, 200]},
+    {"id": "golgg-html", "from": "golgg", "to": "stats-scraper", "label": "team and game HTML", "classification": "public web", "variant": "emphasis", "route": "straight", "labelAt": [207, 428]},
+    {"id": "parsed-facts", "from": "stats-scraper", "to": "raw-sqlite", "label": "parsed S16 facts", "classification": "source trace", "variant": "emphasis", "route": "straight", "labelAt": [421, 428]},
+    {"id": "clean-features", "from": "raw-sqlite", "to": "stats-model", "label": "quality-passed features", "classification": "analysis ready", "variant": "emphasis", "route": "straight", "labelAt": [638, 428]},
+    {"id": "schedule-payload", "from": "schedule-source", "to": "fixture-parser", "label": "stage schedule", "classification": "supplemental", "variant": "dashed", "route": "straight", "labelAt": [207, 656]},
+    {"id": "normalized-fixtures", "from": "fixture-parser", "to": "fixture-table", "label": "normalized fixtures", "classification": "UTC", "variant": "dashed", "route": "straight", "labelAt": [423, 656]},
+    {"id": "future-fixture", "from": "fixture-table", "to": "schedule-match", "label": "future fixture", "classification": "read-only", "variant": "security", "route": "straight", "labelAt": [637, 656]},
+    {"id": "eda-products", "from": "eda-compare", "to": "dashboard-report", "label": "insights and figures", "classification": "descriptive", "variant": "emphasis", "route": "auto", "labelAt": [858, 202]},
+    {"id": "model-evidence", "from": "stats-model", "to": "dashboard-report", "label": "backtest evidence", "classification": "uncertainty", "variant": "default", "route": "auto", "labelAt": [858, 316]},
+    {"id": "model-probability", "from": "stats-model", "to": "prediction-output", "label": "matchup probability", "classification": "not betting advice", "variant": "dashed", "route": "auto", "labelAt": [858, 454]},
+    {"id": "prediction-context", "from": "schedule-match", "to": "prediction-output", "label": "official status", "classification": "fresh or hypothetical", "variant": "security", "route": "auto", "labelAt": [858, 544]}
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "Reproducible Python pipeline",
+      "items": [
+        "Every stage is callable from the VS Code terminal or Tasks menu",
+        "Raw evidence, SQLite facts, CSV tables, figures, and reports remain auditable",
+        "Incremental upserts avoid duplicating source game IDs"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Analysis safety",
+      "items": [
+        "Only official S16 matches enter the primary analytical scope",
+        "Quality gates run before EDA, comparison, or prediction",
+        "Cross-role and small-sample results carry explicit warnings"
+      ]
+    },
+    {
+      "dot": "orange",
+      "title": "Prediction contract",
+      "items": [
+        "Walk-forward evaluation prevents future data leakage",
+        "Brier score and log loss evaluate probability quality",
+        "No valid future fixture means the result is hypothetical"
+      ]
+    }
+  ]
+}

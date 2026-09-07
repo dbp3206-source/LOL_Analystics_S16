@@ -1,0 +1,68 @@
+{
+  "fixture_id": "s16-2805-vs-2809-2026-08-28",
+  "prediction_timestamp": "2026-08-28T03:07:38.459910+00:00",
+  "prediction_context": "hypothetical",
+  "fixture_timestamp": null,
+  "feature_cutoff_exclusive": "2026-08-28",
+  "data_freshness": {
+    "status": "fresh",
+    "last_successful_update": "2026-08-28T02:52:28.194197+00:00",
+    "age_hours": 0.25285158694444443,
+    "max_age_hours": 24
+  },
+  "data_cutoff": "2026-08-23",
+  "feature_values": {
+    "posterior_win_rate": 0.5005859832799437,
+    "avg_gpm": 0.5017693473081518,
+    "avg_gdm": 0.5033245100216706,
+    "combat_rate": 0.5028286011196406,
+    "first_tower_rate": 0.4798411998235554
+  },
+  "model_version": "empirical-strength-v1",
+  "feature_version": "s16-win-rate-h2h-economy-v3-gdm-per-minute",
+  "status": "baseline_ready",
+  "sample_size_total": 281,
+  "small_sample_warning": false,
+  "team_a": {
+    "team_id": 2805,
+    "team": "Hanwha Life Esports",
+    "games": 134,
+    "wins": 85,
+    "losses": 49,
+    "raw_win_rate": 0.6343283582089553,
+    "posterior_win_rate": 0.6323529411764706,
+    "uncertainty_90": 0.06776429713979332,
+    "avg_gpm": 2022.306447375614,
+    "avg_gdm": 107.27245519657855,
+    "avg_kills": 18.03731343283582,
+    "avg_deaths": 15.507462686567164,
+    "first_tower_rate": 0.5522388059701493,
+    "data_cutoff": "2026-08-23"
+  },
+  "team_b": {
+    "team_id": 2809,
+    "team": "T1",
+    "games": 147,
+    "wins": 93,
+    "losses": 54,
+    "raw_win_rate": 0.6326530612244898,
+    "posterior_win_rate": 0.6308724832214765,
+    "uncertainty_90": 0.06481555973860706,
+    "avg_gpm": 2008.0442670008345,
+    "avg_gdm": 100.62343515323754,
+    "avg_kills": 17.82312925170068,
+    "avg_deaths": 15.210884353741497,
+    "first_tower_rate": 0.5986394557823129,
+    "data_cutoff": "2026-08-23"
+  },
+  "head_to_head": {
+    "games": 22,
+    "wins_team_a": 11,
+    "wins_team_b": 11,
+    "team_a_rate": 0.5
+  },
+  "probability_team_a": 0.4982524462329443,
+  "probability_team_b": 0.5017475537670557,
+  "predicted_winner_team_id": 2809,
+  "confidence_note": "Transparent, uncalibrated educational baseline; interpret with sample size and backtest metrics."
+}

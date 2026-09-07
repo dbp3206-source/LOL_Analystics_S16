@@ -1,0 +1,9 @@
+[browser]
+# Disable telemetry for a deterministic classroom/offline demo and prevent
+# Streamlit from trying to create credentials under a restricted user home.
+gatherUsageStats = false
+
+[server]
+headless = true
+address = "127.0.0.1"
+port = 8501

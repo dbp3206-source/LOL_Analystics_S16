@@ -1,0 +1,66 @@
+{
+  "project_name": "lol-pro-analytics-s16",
+  "season": "S16",
+  "season_start_date": "2026-01-01",
+  "timezone": "Asia/Bangkok",
+  "update_policy": {
+    "max_age_hours": 24,
+    "request_timeout_seconds": 20,
+    "max_retries": 3,
+    "rate_limit_seconds": 1.5,
+    "user_agent": "LoL-Pro-Analytics-S16/0.1 (educational project)"
+  },
+  "sources": {
+    "statistics": "https://gol.gg/esports/home/",
+    "schedule": "https://lol.fandom.com/api.php?action=parse&page=LCK%2F2026_Season%2FSeason_Play-In&prop=text&format=json",
+    "schedule_pages": [
+      "https://lol.fandom.com/api.php?action=parse&page=LCK%2F2026_Season%2FRounds_1-2&prop=text&format=json",
+      "https://lol.fandom.com/api.php?action=parse&page=LCK%2F2026_Season%2FRoad_to_MSI&prop=text&format=json",
+      "https://lol.fandom.com/api.php?action=parse&page=LCK%2F2026_Season%2FRounds_3-4&prop=text&format=json",
+      "https://lol.fandom.com/api.php?action=parse&page=LCK%2F2026_Season%2FSeason_Play-In&prop=text&format=json",
+      "https://lol.fandom.com/api.php?action=parse&page=LCK%2F2026_Season%2FSeason_Playoffs&prop=text&format=json"
+    ]
+  },
+  "tracked_lck_teams": [
+    {
+      "canonical_name": "T1",
+      "aliases": ["T1"]
+    },
+    {
+      "canonical_name": "Hanwha Life Esports",
+      "aliases": ["HLE", "Hanwha Life eSports", "Hanwha Life Esports"]
+    },
+    {
+      "canonical_name": "Gen.G",
+      "aliases": ["Gen.G", "GenG"]
+    },
+    {
+      "canonical_name": "Dplus KIA",
+      "aliases": ["Dplus KIA", "DK"]
+    },
+    {
+      "canonical_name": "KT Rolster",
+      "aliases": ["KT Rolster", "KT"]
+    },
+    {
+      "canonical_name": "BNK FearX",
+      "aliases": ["BNK FearX", "FearX"]
+    },
+    {
+      "canonical_name": "Nongshim RedForce",
+      "aliases": ["Nongshim RedForce", "NS"]
+    },
+    {
+      "canonical_name": "DN SOOPers",
+      "aliases": ["DN SOOPers"]
+    },
+    {
+      "canonical_name": "Kiwoom DRX",
+      "aliases": ["Kiwoom DRX", "DRX"]
+    },
+    {
+      "canonical_name": "HANJIN BRION",
+      "aliases": ["HANJIN BRION", "BRO"]
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Python: Health check",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv-vscode\\Scripts\\python.exe",
+      "args": ["-m", "src.cli", "health"],
+      "options": {"cwd": "${workspaceFolder}"},
+      "problemMatcher": []
+    },
+    {
+      "label": "Python: Verify DA/DS environment",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv-vscode\\Scripts\\python.exe",
+      "args": ["scripts/verify_environment.py"],
+      "options": {"cwd": "${workspaceFolder}"},
+      "problemMatcher": []
+    },
+    {
+      "label": "Python: Run all tests",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv-vscode\\Scripts\\python.exe",
+      "args": ["-m", "unittest", "discover", "-s", "tests", "-v"],
+      "options": {"cwd": "${workspaceFolder}"},
+      "group": {"kind": "test", "isDefault": true},
+      "problemMatcher": []
+    },
+    {
+      "label": "Data: Quality check",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv-vscode\\Scripts\\python.exe",
+      "args": ["-m", "src.cli", "quality-check"],
+      "options": {"cwd": "${workspaceFolder}"},
+      "problemMatcher": []
+    },
+    {
+      "label": "Data: Generate EDA outputs",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv-vscode\\Scripts\\python.exe",
+      "args": ["-m", "src.cli", "eda"],
+      "options": {"cwd": "${workspaceFolder}"},
+      "problemMatcher": []
+    },
+    {
+      "label": "Data: Run Pandas EDA",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv-vscode\\Scripts\\python.exe",
+      "args": ["-m", "src.cli", "pandas-eda"],
+      "options": {"cwd": "${workspaceFolder}"},
+      "problemMatcher": []
+    },
+    {
+      "label": "Data: Visualize T1 vs HLE",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv-vscode\\Scripts\\python.exe",
+      "args": ["-m", "src.cli", "visualize", "--team-a-id", "2809", "--team-b-id", "2805"],
+      "options": {"cwd": "${workspaceFolder}"},
+      "problemMatcher": []
+    },
+    {
+      "label": "Statistics: Compare T1 vs HLE",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv-vscode\\Scripts\\python.exe",
+      "args": ["-m", "src.cli", "statistics-report", "--team-a-id", "2809", "--team-b-id", "2805"],
+      "options": {"cwd": "${workspaceFolder}"},
+      "problemMatcher": []
+    },
+    {
+      "label": "Notebook: Sync EDA from percent cells",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv-vscode\\Scripts\\python.exe",
+      "args": ["scripts/sync_percent_notebook.py"],
+      "options": {"cwd": "${workspaceFolder}"},
+      "problemMatcher": []
+    },
+    {
+      "label": "Demo: Run offline T1 vs HLE",
+      "type": "process",
+      "command": "powershell.exe",
+      "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "scripts/demo_offline.ps1", "-TeamAId", "2809", "-TeamBId", "2805"],
+      "options": {"cwd": "${workspaceFolder}"},
+      "problemMatcher": []
+    },
+    {
+      "label": "App: Run Streamlit dashboard",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv-vscode\\Scripts\\python.exe",
+      "args": ["-m", "streamlit", "run", "app/streamlit_app.py"],
+      "options": {"cwd": "${workspaceFolder}"},
+      "isBackground": true,
+      "problemMatcher": []
+    }
+  ]
+}
