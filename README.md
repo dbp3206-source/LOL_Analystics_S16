@@ -173,6 +173,8 @@ Trong bảng trên, `python` nghĩa là `.\.venv-vscode\Scripts\python.exe` khi 
 
 ## 8. Đọc và học project theo thứ tự nào?
 
+Nếu muốn học theo một lộ trình cầm tay chỉ việc, đọc **[A-to-Z Project Handbook](docs/handbook/00_START_HERE.md)** trước. Handbook có hai chế độ: đọc trên điện thoại (không cần VS Code) và hands-on trên VS Code; có trace input → output, lab mô phỏng, 100 câu bảo vệ, file/function reference, debugging và coverage audit.
+
 | Bước | Tài liệu | Bạn sẽ hiểu gì? |
 |---:|---|---|
 | 1 | [`docs/01_PROJECT_OVERVIEW.md`](docs/01_PROJECT_OVERVIEW.md) | Bài toán, scope, pipeline, deliverables |
@@ -181,7 +183,10 @@ Trong bảng trên, `python` nghĩa là `.\.venv-vscode\Scripts\python.exe` khi 
 | 4 | [`docs/05_CODEBASE_FILE_GUIDE.md`](docs/05_CODEBASE_FILE_GUIDE.md) | Bản chất và hợp đồng input/output của từng file |
 | 5 | [`notebooks/01_eda_s16.ipynb`](notebooks/01_eda_s16.ipynb) | Chạy từng cell như Colab trong VS Code |
 | 6 | [`docs/04_REFERENCE_ALIGNMENT.md`](docs/04_REFERENCE_ALIGNMENT.md) | Project bám các nguồn tham khảo ở đâu và không vượt scope thế nào |
+
 | 7 | [`ROADMAP.md`](ROADMAP.md) | Mười phase triển khai và tiêu chí hoàn thành |
+
+Handbook đầy đủ: [`docs/handbook/00_START_HERE.md`](docs/handbook/00_START_HERE.md) · [`docs/handbook/HANDBOOK_COVERAGE_AUDIT.md`](docs/handbook/HANDBOOK_COVERAGE_AUDIT.md).
 
 Đặc tả bổ sung: [`PRODUCT_SPEC`](docs/PRODUCT_SPEC.md) · [`DATA_SCHEMA`](docs/DATA_SCHEMA.md) · [`QUALITY_GATE`](docs/QUALITY_GATE.md) · [`RUNBOOK`](docs/RUNBOOK.md) · [`REQUIREMENTS_TRACEABILITY`](docs/REQUIREMENTS_TRACEABILITY.md).
 
