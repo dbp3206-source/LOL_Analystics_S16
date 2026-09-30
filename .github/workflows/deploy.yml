@@ -1,0 +1,101 @@
+name: Deploy LoL Analytics Study Atlas to GitHub Pages
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:    # Allow manual trigger from GitHub UI
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build & Package
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt || true
+
+      - name: Build master HTML
+        run: python build_master_html_final.py
+        working-directory: ${{ github.workspace }}
+
+      - name: Verify build output
+        run: |
+          echo "=== Build Verification ==="
+          ls -lh LOL_Analytics_Study_Atlas_Master.html
+          python -c "
+          with open('LOL_Analytics_Study_Atlas_Master.html') as f:
+              html = f.read()
+          checks = {
+              'lightboxModal': 'lightboxModal' in html,
+              'ENTERPRISE_SVG_RAW': 'ENTERPRISE_SVG_RAW' in html,
+              'touchstart': 'touchstart' in html,
+              'manifest_link': 'manifest.json' in html,
+              'service_worker': 'service-worker.js' in html,
+          }
+          for k, v in checks.items():
+              print(f'  [{\"PASS\" if v else \"FAIL\"}] {k}')
+          failed = [k for k, v in checks.items() if not v]
+          if failed:
+              print(f'FAILED checks: {failed}')
+              exit(1)
+          print('All checks passed!')
+          "
+
+      - name: Prepare GitHub Pages directory
+        run: |
+          mkdir -p _site
+          # Copy main HTML as index.html for root URL access
+          cp LOL_Analytics_Study_Atlas_Master.html _site/index.html
+          cp LOL_Analytics_Study_Atlas_Master.html _site/LOL_Analytics_Study_Atlas_Master.html
+          # Copy PWA files
+          cp manifest.json _site/manifest.json
+          cp service-worker.js _site/service-worker.js
+          # Copy assets
+          cp -r assets _site/assets 2>/dev/null || true
+          # Create GitHub Pages configuration
+          echo "lol-analytics-s16" > _site/CNAME 2>/dev/null || true
+          echo "" > _site/.nojekyll
+          # Create a simple 404 redirect
+          cp _site/index.html _site/404.html
+
+      - name: Show site structure
+        run: |
+          echo "=== Site Structure ==="
+          find _site -type f | sort
+          echo "=== File Sizes ==="
+          du -sh _site/*
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    name: Deploy to GitHub Pages
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,6 +1,6 @@
 # LoL Pro Analytics S16 — Final Project Handoff
 
-Generated: `2026-09-07T17:30:03.929395+00:00`
+Generated: `2026-09-29T15:47:29.433499+00:00`
 
 ## Product scope
 
@@ -19,17 +19,17 @@ Generated: `2026-09-07T17:30:03.929395+00:00`
 
 ## Evidence from current workspace
 
-- SQLite tables: `19`; games: `667`; series: `271`; drafts: `13340`; timeline events: `5793`; teams: `23`; players: `152`; roster rows: `205`.
+- SQLite tables: `19`; games: `1`; series: `1`; drafts: `0`; timeline events: `0`; teams: `2`; players: `2`; roster rows: `2`.
 - Source audit report: `available`.
-- Quality report: `available`; status `passed`.
+- Quality report: `available`; status `failed`.
 - EDA report: `available`; team rows `10`, player rows `50`.
-- Latest update run: `{'run_id': 'update-20260907T170423-dd255c9e', 'started_at': '2026-09-07T17:04:23.694347+00:00', 'finished_at': '2026-09-07T17:04:38.506657+00:00', 'status': 'success', 'pages_requested': 6, 'pages_changed': 5, 'rows_upserted': 125, 'error_count': 0}`.
+- Latest update run: `none`.
 - Latest all-team manifest: status `ok`, dry_run `False`, teams resolved `10/10`.
-- Latest quality run: `{'run_at': '2026-09-07T17:29:36.917266+00:00', 'passed': 12, 'checks': 12}`.
+- Latest quality run: `{'run_at': '2026-09-29T15:47:20.459808+00:00', 'passed': 10, 'checks': 12}`.
 - Sample prediction: `baseline_ready`; context `hypothetical`; fixture timestamp `None`.
-- Statistical report: `available`; inferential status: `ok`; visualization status: `ok`.
-- Walk-forward evaluation: `available`; games scored `581`; logistic warm-up predictions `577`; small-sample warning `False`.
-- Schedule report: `available`; stored rows `5`; future rows at generation time `0`.
+- Statistical report: `available`; inferential status: `partial`; visualization status: `ok`.
+- Walk-forward evaluation: `available`; games scored `1`; logistic warm-up predictions `0`; small-sample warning `True`.
+- Schedule report: `available`; stored rows `0`; future rows at generation time `0`.
 
 ## Reproducible commands
 
@@ -56,11 +56,11 @@ Generated: `2026-09-07T17:30:03.929395+00:00`
 
 ## Known limitations before final academic demo
 
-- The local database contains the refreshed S16 Gol.gg snapshot (latest incremental update recorded in SQLite): `667` game pages across all 10 configured LCK primary teams, plus external tournament opponents retained as non-primary dimensions.
-- Team gold/GPM/GDM, first blood/first tower, draft actions, objective milestone timestamps (`5793` events) and Gol.gg full-stats player fields are populated for the current S16 snapshot; unsupported event streams remain nullable by source contract.
+- The local database contains the refreshed S16 Gol.gg snapshot (latest incremental update recorded in SQLite): `1` game pages across all 10 configured LCK primary teams, plus external tournament opponents retained as non-primary dimensions.
+- Team gold/GPM/GDM, first blood/first tower, draft actions, objective milestone timestamps (`0` events) and Gol.gg full-stats player fields are populated for the current S16 snapshot; unsupported event streams remain nullable by source contract.
 - Prediction includes an explainable baseline and educational logistic walk-forward comparison over the current LCK-only pair sample; it is evidence-backed but still requires calibration monitoring before production decisions.
 - `.venv-vscode` scientific stack đã verified; notebook 19 code cells sinh 6 hình và Matplotlib/Seaborn renderer sinh 14 rich PNG. SciPy/Statsmodels tests đã chạy; assumption warning vẫn phải được trình bày.
-- Schedule fixtures are sourced from Leaguepedia MediaWiki API stage pages. `5` normalized historical/current rows are stored and `0` remain in the future at report time; without a valid future fixture, matchup output must stay labelled hypothetical.
+- Schedule fixtures are sourced from Leaguepedia MediaWiki API stage pages. `0` normalized historical/current rows are stored and `0` remain in the future at report time; without a valid future fixture, matchup output must stay labelled hypothetical.
 
 ## Deliverables
 

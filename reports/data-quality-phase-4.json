@@ -1,6 +1,6 @@
 {
   "phase": "Phase 4 — Cleaning and data quality",
-  "run_at": "2026-09-07T17:29:36.917266+00:00",
+  "run_at": "2026-09-29T15:47:20.459808+00:00",
   "season": "S16",
   "season_start_date": "2026-01-01",
   "database": "data/lol_analytics.db",
@@ -35,15 +35,15 @@
     {
       "check_name": "starting_lineup_five_per_team",
       "table_name": "player_game_stats",
-      "passed": true,
-      "affected_rows": 0,
+      "passed": false,
+      "affected_rows": 2,
       "details": "each team in a completed game must have exactly five player rows"
     },
     {
       "check_name": "current_roster_five_players",
       "table_name": "roster_periods",
-      "passed": true,
-      "affected_rows": 0,
+      "passed": false,
+      "affected_rows": 2,
       "details": "each tracked current roster must expose five starters"
     },
     {
@@ -96,5 +96,5 @@
       "details": "a parsed completed draft contains ten picks and ten bans"
     }
   ],
-  "status": "passed"
+  "status": "failed"
 }

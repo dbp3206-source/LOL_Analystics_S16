@@ -1,30 +1,24 @@
 # Phase 7 — Statistical Evidence
 
-- Thời điểm chạy: `2026-09-07T17:04:44.265664+00:00`
+- Thời điểm chạy: `2026-09-29T15:47:27.030011+00:00`
 - Phạm vi: các trận chính thức S16 của 10 đội LCK primary; có thể gồm giải quốc tế.
 - Wilson CI biểu diễn độ bất định của tỷ lệ thắng quan sát.
-- Trạng thái suy luận: `ok`.
+- Trạng thái suy luận: `partial`.
 
 ## 1. Tỷ lệ thắng và Wilson 95% CI
 
 | Team | Wins | Games | Rate | 95% CI | Warning |
 |---|---:|---:|---:|---|---|
-| BNK FearX | 60 | 129 | 46.5% | 38.1%–55.1% |  |
-| DN SOOPers | 47 | 120 | 39.2% | 30.9%–48.1% |  |
-| Dplus KIA | 81 | 149 | 54.4% | 46.4%–62.2% |  |
-| Gen.G | 89 | 128 | 69.5% | 61.1%–76.8% |  |
-| HANJIN BRION | 43 | 108 | 39.8% | 31.1%–49.2% |  |
-| Hanwha Life Esports | 87 | 139 | 62.6% | 54.3%–70.2% |  |
-| KT Rolster | 48 | 106 | 45.3% | 36.1%–54.8% |  |
-| Kiwoom DRX | 45 | 112 | 40.2% | 31.6%–49.4% |  |
-| Nongshim RedForce | 43 | 105 | 41.0% | 32.0%–50.5% |  |
-| T1 | 96 | 152 | 63.2% | 55.3%–70.4% |  |
+| Hanwha Life Esports | 1 | 1 | 100.0% | 20.7%–100.0% | n < 30 |
+| T1 | 0 | 1 | 0.0% | 0.0%–79.3% | n < 30 |
 
 ## 2. Kiểm định thăm dò
 
-- Chi-square side × outcome: `assumption_warning`; p-value = `3.5123942134008174e-06`.
+- Chi-square side × outcome: `assumption_warning`; p-value = `1.0`.
   - Không dùng p-value này làm kết luận xác nhận: blue/red là hai quan sát ghép cặp của cùng game.
-- Chưa chọn cặp đội; dùng `--team-a-id` và `--team-b-id` để chạy so sánh.
+- Cặp chọn: **T1** và **Hanwha Life Esports**.
+- Two-proportion z-test: `skipped`; p-value = `N/A`.
+- Welch t-test GDM + Cohen's d: `skipped`; p-value = `N/A`; d = `None`.
 
 ## 3. Giới hạn bắt buộc khi diễn giải
 

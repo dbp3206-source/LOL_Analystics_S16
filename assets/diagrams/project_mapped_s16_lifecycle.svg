@@ -1,0 +1,399 @@
+<svg viewBox="0 0 1600 900" width="100%" height="auto" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="LoL Analytics S16 Lifecycle Process Diagram">
+  <title>Project-Mapped S16 Lifecycle</title>
+  <defs>
+    <linearGradient id="s16-grad-a" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5b041" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#b45309" stop-opacity="0.10"/>
+    </linearGradient>
+    <linearGradient id="s16-grad-b" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0.10"/>
+    </linearGradient>
+    <linearGradient id="s16-grad-c" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#b845ff" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#6d28d9" stop-opacity="0.10"/>
+    </linearGradient>
+    <linearGradient id="s16-grad-d" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00e676" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#047857" stop-opacity="0.10"/>
+    </linearGradient>
+    <linearGradient id="s16-grad-e" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d2ff" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#0369a1" stop-opacity="0.10"/>
+    </linearGradient>
+    <linearGradient id="s16-grad-f" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffd700" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#d97706" stop-opacity="0.10"/>
+    </linearGradient>
+    <linearGradient id="s16-grad-x" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff3399" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#be185d" stop-opacity="0.10"/>
+    </linearGradient>
+
+    <!-- Filters for glowing flows -->
+    <filter id="s16-glow-cyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="s16-glow-purple" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Arrow Markers -->
+    <marker id="s16-arrow-teal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#0099bb"/>
+    </marker>
+    <marker id="s16-arrow-cyan" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#00f0ff"/>
+    </marker>
+    <marker id="s16-arrow-purple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#b845ff"/>
+    </marker>
+    <marker id="s16-arrow-coral" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#ff5252"/>
+    </marker>
+    <marker id="s16-arrow-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#00e676"/>
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#050713" rx="14"/>
+  <rect x="10" y="10" width="1580" height="880" fill="none" stroke="rgba(0, 240, 255, 0.2)" stroke-width="1.5" rx="12"/>
+
+  <!-- Header Banner -->
+  <g transform="translate(30, 25)">
+    <text font-family="'Cinzel', 'Rajdhani', serif" font-size="22" font-weight="800" fill="#ffffff" letter-spacing="1">PROJECT-MAPPED S16 LIFECYCLE</text>
+    <text font-family="'Inter', -apple-system, sans-serif" font-size="13" fill="#b845ff" y="24" letter-spacing="0.5">Ánh xạ Thực tế Dự án LoL Analytics S16 (LCK Season 2026): Từ Gol.gg &amp; Leaguepedia đến SQLite, Walk-Forward LogReg &amp; Streamlit UI</text>
+
+    <!-- Legend -->
+    <g transform="translate(1000, 0)">
+      <line x1="0" y1="12" x2="30" y2="12" stroke="#0099bb" stroke-width="2.5"/>
+      <text font-family="'Fira Code', monospace" font-size="10.5" fill="#a5b4fc" x="36" y="15">General</text>
+
+      <line x1="110" y1="12" x2="140" y2="12" stroke="#00f0ff" stroke-width="3" filter="url(#s16-glow-cyan)"/>
+      <text font-family="'Fira Code', monospace" font-size="10.5" fill="#00f0ff" x="146" y="15">ETL Data</text>
+
+      <line x1="220" y1="12" x2="250" y2="12" stroke="#b845ff" stroke-width="3" filter="url(#s16-glow-purple)"/>
+      <text font-family="'Fira Code', monospace" font-size="10.5" fill="#b845ff" x="256" y="15">Walk-Forward</text>
+
+      <line x1="350" y1="12" x2="380" y2="12" stroke="#ff5252" stroke-width="2.5" stroke-dasharray="6 4"/>
+      <text font-family="'Fira Code', monospace" font-size="10.5" fill="#ff5252" x="386" y="15">Loop Feedback</text>
+
+      <line x1="480" y1="12" x2="510" y2="12" stroke="#00e676" stroke-width="2.5" stroke-dasharray="2 4"/>
+      <text font-family="'Fira Code', monospace" font-size="10.5" fill="#00e676" x="516" y="15">Sync DB</text>
+    </g>
+  </g>
+
+  <!-- ==================== PHASE COLUMNS BACKGROUNDS ==================== -->
+  <!-- Phase A: x=30, w=205 -->
+  <g transform="translate(30, 80)">
+    <rect width="205" height="780" fill="url(#s16-grad-a)" stroke="#f5b041" stroke-width="1.2" rx="10"/>
+    <rect x="10" y="12" width="185" height="34" rx="6" fill="rgba(245, 176, 65, 0.2)" stroke="#f5b041" stroke-width="1"/>
+    <text font-family="'Rajdhani', sans-serif" font-size="12" font-weight="800" fill="#f5b041" x="16" y="34" letter-spacing="1">PHASE A · BÀI TOÁN LCK</text>
+    <text font-family="'Inter', sans-serif" font-size="10" fill="#fef3c7" x="16" y="58">Win Rate Estimation</text>
+  </g>
+
+  <!-- Phase B: x=250, w=205 -->
+  <g transform="translate(250, 80)">
+    <rect width="205" height="780" fill="url(#s16-grad-b)" stroke="#00f0ff" stroke-width="1.2" rx="10"/>
+    <rect x="10" y="12" width="185" height="34" rx="6" fill="rgba(0, 240, 255, 0.2)" stroke="#00f0ff" stroke-width="1"/>
+    <text font-family="'Rajdhani', sans-serif" font-size="12" font-weight="800" fill="#00f0ff" x="16" y="34" letter-spacing="1">PHASE B · CRAWL &amp; SQLITE</text>
+    <text font-family="'Inter', sans-serif" font-size="10" fill="#e0f2fe" x="16" y="58">Gol.gg + Leaguepedia API</text>
+  </g>
+
+  <!-- Phase C: x=470, w=205 -->
+  <g transform="translate(470, 80)">
+    <rect width="205" height="780" fill="url(#s16-grad-c)" stroke="#b845ff" stroke-width="1.2" rx="10"/>
+    <rect x="10" y="12" width="185" height="34" rx="6" fill="rgba(184, 69, 255, 0.2)" stroke="#b845ff" stroke-width="1"/>
+    <text font-family="'Rajdhani', sans-serif" font-size="12" font-weight="800" fill="#b845ff" x="16" y="34" letter-spacing="1">PHASE C · PANDAS EDA</text>
+    <text font-family="'Inter', sans-serif" font-size="10" fill="#f3e8ff" x="16" y="58">Wilson Score &amp; Chi-Square</text>
+  </g>
+
+  <!-- Phase D: x=690, w=205 -->
+  <g transform="translate(690, 80)">
+    <rect width="205" height="780" fill="url(#s16-grad-d)" stroke="#00e676" stroke-width="1.2" rx="10"/>
+    <rect x="10" y="12" width="185" height="34" rx="6" fill="rgba(0, 230, 118, 0.2)" stroke="#00e676" stroke-width="1"/>
+    <text font-family="'Rajdhani', sans-serif" font-size="12" font-weight="800" fill="#00e676" x="16" y="34" letter-spacing="1">PHASE D · MÔ HÌNH HÓA</text>
+    <text font-family="'Inter', sans-serif" font-size="10" fill="#dcfce7" x="16" y="58">Walk-Forward LogReg</text>
+  </g>
+
+  <!-- Phase E: x=910, w=205 -->
+  <g transform="translate(910, 80)">
+    <rect width="205" height="780" fill="url(#s16-grad-e)" stroke="#00d2ff" stroke-width="1.2" rx="10"/>
+    <rect x="10" y="12" width="185" height="34" rx="6" fill="rgba(0, 210, 255, 0.2)" stroke="#00d2ff" stroke-width="1"/>
+    <text font-family="'Rajdhani', sans-serif" font-size="12" font-weight="800" fill="#00d2ff" x="16" y="34" letter-spacing="1">PHASE E · TỰ ĐỘNG HÓA</text>
+    <text font-family="'Inter', sans-serif" font-size="10" fill="#e0f2fe" x="16" y="58">daily_update.ps1 &amp; Streamlit</text>
+  </g>
+
+  <!-- Phase F: x=1130, w=205 -->
+  <g transform="translate(1130, 80)">
+    <rect width="205" height="780" fill="url(#s16-grad-f)" stroke="#ffd700" stroke-width="1.2" rx="10"/>
+    <rect x="10" y="12" width="185" height="34" rx="6" fill="rgba(255, 215, 0, 0.2)" stroke="#ffd700" stroke-width="1"/>
+    <text font-family="'Rajdhani', sans-serif" font-size="12" font-weight="800" fill="#ffd700" x="16" y="34" letter-spacing="1">PHASE F · FRESHNESS GATE</text>
+    <text font-family="'Inter', sans-serif" font-size="10" fill="#fef9c3" x="16" y="58">Health Check &amp; Feedback</text>
+  </g>
+
+  <!-- Phase X: x=1350, w=220 -->
+  <g transform="translate(1350, 80)">
+    <rect width="220" height="780" fill="url(#s16-grad-x)" stroke="#ff3399" stroke-width="1.2" rx="10"/>
+    <rect x="10" y="12" width="200" height="34" rx="6" fill="rgba(255, 51, 153, 0.2)" stroke="#ff3399" stroke-width="1"/>
+    <text font-family="'Rajdhani', sans-serif" font-size="12" font-weight="800" fill="#ff3399" x="16" y="34" letter-spacing="1">PHASE X · CHUYÊN ĐỀ SÂU</text>
+    <text font-family="'Inter', sans-serif" font-size="10" fill="#fce7f3" x="16" y="58">Data Mining &amp; NLP S16</text>
+  </g>
+
+  <!-- ==================== PROCESS NODES ==================== -->
+  <!-- M01: LCK 2026 Problem Framing (#m01) -->
+  <a href="#m01" class="diagram-svg-node">
+    <g transform="translate(42, 170)">
+      <rect width="180" height="95" rx="8" fill="#0d1028" stroke="#f5b041" stroke-width="1.5"/>
+      <rect x="8" y="10" width="36" height="18" rx="4" fill="rgba(245,176,65,0.25)" stroke="#f5b041"/>
+      <text font-family="'Fira Code', monospace" font-size="10" font-weight="700" fill="#f5b041" x="14" y="23">M01</text>
+      <text font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" fill="#ffffff" x="8" y="48">LCK 2026 Problem</text>
+      <text font-family="'Inter', sans-serif" font-size="10" fill="#94a3b8" x="8" y="66">Dự đoán Xác suất Thắng</text>
+      <text font-family="'Fira Code', monospace" font-size="9" fill="#ffd67a" x="8" y="83">src/config.py</text>
+    </g>
+  </a>
+
+  <!-- M04: Python Project Architecture (#m04) -->
+  <a href="#m04" class="diagram-svg-node">
+    <g transform="translate(42, 300)">
+      <rect width="180" height="95" rx="8" fill="#0d1028" stroke="#f5b041" stroke-width="1.5"/>
+      <rect x="8" y="10" width="36" height="18" rx="4" fill="rgba(245,176,65,0.25)" stroke="#f5b041"/>
+      <text font-family="'Fira Code', monospace" font-size="10" font-weight="700" fill="#f5b041" x="14" y="23">M04</text>
+      <text font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" fill="#ffffff" x="8" y="48">Cấu Trúc Mã Nguồn CLI</text>
+      <text font-family="'Inter', sans-serif" font-size="10" fill="#94a3b8" x="8" y="66">22 Subcommands Modularity</text>
+      <text font-family="'Fira Code', monospace" font-size="9" fill="#ffd67a" x="8" y="83">src/cli.py</text>
+    </g>
+  </a>
+
+  <!-- M06: Gol.gg Scraper (#m06) -->
+  <a href="#m06" class="diagram-svg-node">
+    <g transform="translate(262, 170)">
+      <rect width="180" height="95" rx="8" fill="#0d1028" stroke="#00f0ff" stroke-width="1.5"/>
+      <rect x="8" y="10" width="36" height="18" rx="4" fill="rgba(0,240,255,0.25)" stroke="#00f0ff"/>
+      <text font-family="'Fira Code', monospace" font-size="10" font-weight="700" fill="#00f0ff" x="14" y="23">M06</text>
+      <text font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" fill="#ffffff" x="8" y="48">Gol.gg &amp; Leaguepedia</text>
+      <text font-family="'Inter', sans-serif" font-size="10" fill="#94a3b8" x="8" y="66">Crawler &amp; Match Schedule</text>
+      <text font-family="'Fira Code', monospace" font-size="9" fill="#ffd67a" x="8" y="83">src/data/crawler.py</text>
+    </g>
+  </a>
+
+  <!-- M11: SQLite schema.sql (#m11) -->
+  <a href="#m11" class="diagram-svg-node">
+    <g transform="translate(262, 300)">
+      <rect width="180" height="95" rx="8" fill="#0d1028" stroke="#00f0ff" stroke-width="1.5"/>
+      <rect x="8" y="10" width="36" height="18" rx="4" fill="rgba(0,240,255,0.25)" stroke="#00f0ff"/>
+      <text font-family="'Fira Code', monospace" font-size="10" font-weight="700" fill="#00f0ff" x="14" y="23">M11</text>
+      <text font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" fill="#ffffff" x="8" y="48">Kho Dữ Liệu SQLite</text>
+      <text font-family="'Inter', sans-serif" font-size="10" fill="#94a3b8" x="8" y="66">Relational Schema &amp; DDL</text>
+      <text font-family="'Fira Code', monospace" font-size="9" fill="#ffd67a" x="8" y="83">src/storage/schema.sql</text>
+    </g>
+  </a>
+
+  <!-- M15: Pandas EDA (#m15) -->
+  <a href="#m15" class="diagram-svg-node">
+    <g transform="translate(482, 170)">
+      <rect width="180" height="95" rx="8" fill="#0d1028" stroke="#b845ff" stroke-width="1.5"/>
+      <rect x="8" y="10" width="36" height="18" rx="4" fill="rgba(184,69,255,0.25)" stroke="#b845ff"/>
+      <text font-family="'Fira Code', monospace" font-size="10" font-weight="700" fill="#b845ff" x="14" y="23">M15</text>
+      <text font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" fill="#ffffff" x="8" y="48">Pandas EDA &amp; Tiền Xử Lý</text>
+      <text font-family="'Inter', sans-serif" font-size="10" fill="#94a3b8" x="8" y="66">Missing &amp; Outlier Cleaning</text>
+      <text font-family="'Fira Code', monospace" font-size="9" fill="#ffd67a" x="8" y="83">src/analysis/pandas_eda.py</text>
+    </g>
+  </a>
+
+  <!-- M18: Wilson & Chi-square (#m18) -->
+  <a href="#m18" class="diagram-svg-node">
+    <g transform="translate(482, 300)">
+      <rect width="180" height="95" rx="8" fill="#0d1028" stroke="#b845ff" stroke-width="1.5"/>
+      <rect x="8" y="10" width="36" height="18" rx="4" fill="rgba(184,69,255,0.25)" stroke="#b845ff"/>
+      <text font-family="'Fira Code', monospace" font-size="10" font-weight="700" fill="#b845ff" x="14" y="23">M18</text>
+      <text font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" fill="#ffffff" x="8" y="48">Kiểm Định Chi-Square &amp; Wilson</text>
+      <text font-family="'Inter', sans-serif" font-size="10" fill="#94a3b8" x="8" y="66">Thống Kê Ngoại Suy Chuẩn</text>
+      <text font-family="'Fira Code', monospace" font-size="9" fill="#ffd67a" x="8" y="83">src/analysis/stats.py</text>
+    </g>
+  </a>
+
+  <!-- M25: Feature Matrix (#m25) -->
+  <a href="#m25" class="diagram-svg-node">
+    <g transform="translate(702, 170)">
+      <rect width="180" height="95" rx="8" fill="#0d1028" stroke="#00e676" stroke-width="1.5"/>
+      <rect x="8" y="10" width="36" height="18" rx="4" fill="rgba(0,230,118,0.25)" stroke="#00e676"/>
+      <text font-family="'Fira Code', monospace" font-size="10" font-weight="700" fill="#00e676" x="14" y="23">M25</text>
+      <text font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" fill="#ffffff" x="8" y="48">Tạo Ma Trận Đặc Trưng</text>
+      <text font-family="'Inter', sans-serif" font-size="10" fill="#94a3b8" x="8" y="66">Temporal Split Sorting</text>
+      <text font-family="'Fira Code', monospace" font-size="9" fill="#ffd67a" x="8" y="83">src/modeling/features.py</text>
+    </g>
+  </a>
+
+  <!-- M32: Walk-Forward LogReg (#m32) -->
+  <a href="#m32" class="diagram-svg-node">
+    <g transform="translate(702, 300)">
+      <rect width="180" height="95" rx="8" fill="#0d1028" stroke="#00e676" stroke-width="1.5"/>
+      <rect x="8" y="10" width="36" height="18" rx="4" fill="rgba(0,230,118,0.25)" stroke="#00e676"/>
+      <text font-family="'Fira Code', monospace" font-size="10" font-weight="700" fill="#00e676" x="14" y="23">M32</text>
+      <text font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" fill="#ffffff" x="8" y="48">Logistic Regression WF</text>
+      <text font-family="'Inter', sans-serif" font-size="10" fill="#94a3b8" x="8" y="66">Walk-Forward Zero Leakage</text>
+      <text font-family="'Fira Code', monospace" font-size="9" fill="#ffd67a" x="8" y="83">src/modeling/predictor.py</text>
+    </g>
+  </a>
+
+  <!-- M39: daily_update.ps1 (#m39) -->
+  <a href="#m39" class="diagram-svg-node">
+    <g transform="translate(922, 170)">
+      <rect width="180" height="95" rx="8" fill="#0d1028" stroke="#00d2ff" stroke-width="1.5"/>
+      <rect x="8" y="10" width="36" height="18" rx="4" fill="rgba(0,210,255,0.25)" stroke="#00d2ff"/>
+      <text font-family="'Fira Code', monospace" font-size="10" font-weight="700" fill="#00d2ff" x="14" y="23">M39</text>
+      <text font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" fill="#ffffff" x="8" y="48">daily_update.ps1</text>
+      <text font-family="'Inter', sans-serif" font-size="10" fill="#94a3b8" x="8" y="66">Tự Động Hóa Toàn Diện</text>
+      <text font-family="'Fira Code', monospace" font-size="9" fill="#ffd67a" x="8" y="83">scripts/daily_update.ps1</text>
+    </g>
+  </a>
+
+  <!-- M43: Streamlit UI (#m43) -->
+  <a href="#m43" class="diagram-svg-node">
+    <g transform="translate(922, 300)">
+      <rect width="180" height="95" rx="8" fill="#0d1028" stroke="#00d2ff" stroke-width="1.5"/>
+      <rect x="8" y="10" width="36" height="18" rx="4" fill="rgba(0,210,255,0.25)" stroke="#00d2ff"/>
+      <text font-family="'Fira Code', monospace" font-size="10" font-weight="700" fill="#00d2ff" x="14" y="23">M43</text>
+      <text font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" fill="#ffffff" x="8" y="48">Streamlit Dashboard</text>
+      <text font-family="'Inter', sans-serif" font-size="10" fill="#94a3b8" x="8" y="66">Giao Diện Dự Đoán &amp; EDA</text>
+      <text font-family="'Fira Code', monospace" font-size="9" fill="#ffd67a" x="8" y="83">src/dashboard/app.py</text>
+    </g>
+  </a>
+
+  <!-- M44: Freshness Check (#m44) -->
+  <a href="#m44" class="diagram-svg-node">
+    <g transform="translate(1142, 170)">
+      <rect width="180" height="95" rx="8" fill="#0d1028" stroke="#ffd700" stroke-width="1.5"/>
+      <rect x="8" y="10" width="36" height="18" rx="4" fill="rgba(255,215,0,0.25)" stroke="#ffd700"/>
+      <text font-family="'Fira Code', monospace" font-size="10" font-weight="700" fill="#ffd700" x="14" y="23">M44</text>
+      <text font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" fill="#ffffff" x="8" y="48">Độ Tươi &amp; Kiểm Tra Lỗi</text>
+      <text font-family="'Inter', sans-serif" font-size="10" fill="#94a3b8" x="8" y="66">Data Freshness Alert</text>
+      <text font-family="'Fira Code', monospace" font-size="9" fill="#ffd67a" x="8" y="83">cli: freshness</text>
+    </g>
+  </a>
+
+  <!-- M47: Closed Feedback Loop (#m47) -->
+  <a href="#m47" class="diagram-svg-node">
+    <g transform="translate(1142, 300)">
+      <rect width="180" height="95" rx="8" fill="#0d1028" stroke="#ffd700" stroke-width="1.5"/>
+      <rect x="8" y="10" width="36" height="18" rx="4" fill="rgba(255,215,0,0.25)" stroke="#ffd700"/>
+      <text font-family="'Fira Code', monospace" font-size="10" font-weight="700" fill="#ffd700" x="14" y="23">M47</text>
+      <text font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" fill="#ffffff" x="8" y="48">Vòng Lặp Phản Hồi S16</text>
+      <text font-family="'Inter', sans-serif" font-size="10" fill="#94a3b8" x="8" y="66">Retrain Trigger Gate</text>
+      <text font-family="'Fira Code', monospace" font-size="9" fill="#ffd67a" x="8" y="83">cli: quality-check</text>
+    </g>
+  </a>
+
+  <!-- S-DM01: Data Mining KDD (#s-dm01) -->
+  <a href="#s-dm01" class="diagram-svg-node">
+    <g transform="translate(1365, 170)">
+      <rect width="190" height="95" rx="8" fill="#0d1028" stroke="#ff3399" stroke-width="1.5"/>
+      <rect x="8" y="10" width="56" height="18" rx="4" fill="rgba(255,51,153,0.25)" stroke="#ff3399"/>
+      <text font-family="'Fira Code', monospace" font-size="10" font-weight="700" fill="#ff3399" x="14" y="23">S-DM01</text>
+      <text font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" fill="#ffffff" x="8" y="48">Khai Phá Dữ Liệu KDD</text>
+      <text font-family="'Inter', sans-serif" font-size="10" fill="#94a3b8" x="8" y="66">Frequent Itemsets &amp; Rules</text>
+      <text font-family="'Fira Code', monospace" font-size="9" fill="#ffd67a" x="8" y="83">data_mining_kdd.py</text>
+    </g>
+  </a>
+
+  <!-- S-NLP01: NLP Foundations (#s-nlp01) -->
+  <a href="#s-nlp01" class="diagram-svg-node">
+    <g transform="translate(1365, 300)">
+      <rect width="190" height="95" rx="8" fill="#0d1028" stroke="#ff3399" stroke-width="1.5"/>
+      <rect x="8" y="10" width="56" height="18" rx="4" fill="rgba(255,51,153,0.25)" stroke="#ff3399"/>
+      <text font-family="'Fira Code', monospace" font-size="10" font-weight="700" fill="#ff3399" x="14" y="23">S-NLP01</text>
+      <text font-family="'Inter', sans-serif" font-size="11.5" font-weight="700" fill="#ffffff" x="8" y="48">NLP Tóm Tắt Trận Đấu</text>
+      <text font-family="'Inter', sans-serif" font-size="10" fill="#94a3b8" x="8" y="66">Text Summarizer &amp; Sent</text>
+      <text font-family="'Fira Code', monospace" font-size="9" fill="#ffd67a" x="8" y="83">nlp_foundations.py</text>
+    </g>
+  </a>
+
+  <!-- ==================== FLOW CONNECTIONS ==================== -->
+  <path d="M 222 217 L 262 217" class="flow-general" stroke="#0099bb" stroke-width="2.5" fill="none" marker-end="url(#s16-arrow-teal)"/>
+  <path d="M 352 265 L 352 300" class="flow-data-eng" stroke="#00f0ff" stroke-width="3" fill="none" filter="url(#s16-glow-cyan)" marker-end="url(#s16-arrow-cyan)"/>
+  <path d="M 442 347 L 462 347 L 462 217 L 482 217" class="flow-data-eng" stroke="#00f0ff" stroke-width="3" fill="none" filter="url(#s16-glow-cyan)" marker-end="url(#s16-arrow-cyan)"/>
+  <path d="M 572 265 L 572 300" class="flow-general" stroke="#0099bb" stroke-width="2.5" fill="none" marker-end="url(#s16-arrow-teal)"/>
+  <path d="M 662 347 L 682 347 L 682 217 L 702 217" class="flow-model-code" stroke="#b845ff" stroke-width="3" fill="none" filter="url(#s16-glow-purple)" marker-end="url(#s16-arrow-purple)"/>
+  <path d="M 792 265 L 792 300" class="flow-model-code" stroke="#b845ff" stroke-width="3" fill="none" filter="url(#s16-glow-purple)" marker-end="url(#s16-arrow-purple)"/>
+  <path d="M 882 347 L 902 347 L 902 217 L 922 217" class="flow-general" stroke="#0099bb" stroke-width="2.5" fill="none" marker-end="url(#s16-arrow-teal)"/>
+  <path d="M 1012 265 L 1012 300" class="flow-general" stroke="#0099bb" stroke-width="2.5" fill="none" marker-end="url(#s16-arrow-teal)"/>
+  <path d="M 1102 347 L 1122 347 L 1122 217 L 1142 217" class="flow-general" stroke="#0099bb" stroke-width="2.5" fill="none" marker-end="url(#s16-arrow-teal)"/>
+  <path d="M 1232 265 L 1232 300" class="flow-general" stroke="#0099bb" stroke-width="2.5" fill="none" marker-end="url(#s16-arrow-teal)"/>
+  <path d="M 1322 217 L 1365 217" class="flow-general" stroke="#ff3399" stroke-width="2" stroke-dasharray="4 2" fill="none" marker-end="url(#s16-arrow-purple)"/>
+
+  <!-- Feedback Loops -->
+  <path d="M 1232 395 L 1232 460 L 792 460 L 792 395" class="flow-feedback" stroke="#ff5252" stroke-width="2.5" stroke-dasharray="6 4" fill="none" marker-end="url(#s16-arrow-coral)"/>
+  <text font-family="'Fira Code', monospace" font-size="11" fill="#ff5252" x="880" y="450">Retrain Trigger on Data Drift</text>
+
+  <path d="M 1232 460 L 352 460 L 352 395" class="flow-feedback" stroke="#ff5252" stroke-width="2.5" stroke-dasharray="6 4" fill="none" marker-end="url(#s16-arrow-coral)"/>
+  <text font-family="'Fira Code', monospace" font-size="11" fill="#ff5252" x="420" y="450">Weekly Update Re-crawl Loop</text>
+
+  <!-- Versioned DB Sync -->
+  <path d="M 702 240 L 672 240 L 672 420 L 442 420 L 442 365" class="flow-versioned" stroke="#00e676" stroke-width="2.5" stroke-dasharray="2 4" fill="none" marker-end="url(#s16-arrow-green)"/>
+  <text font-family="'Fira Code', monospace" font-size="11" fill="#00e676" x="500" y="412">SQLite Schema &amp; Matrix Sync</text>
+
+  <!-- S16 Mapping Specifics Card -->
+  <g transform="translate(42, 500)">
+    <rect width="1513" height="340" rx="8" fill="rgba(8, 10, 26, 0.85)" stroke="rgba(184, 69, 255, 0.25)" stroke-width="1"/>
+    <text font-family="'Cinzel', serif" font-size="16" font-weight="800" fill="#b845ff" x="20" y="32">CHI TIẾT ÁNH XẠ THỰC THI TRONG REPO LOL_ANALYSTICS_S16</text>
+
+    <g transform="translate(20, 55)">
+      <rect width="280" height="260" rx="6" fill="#0b0e26" stroke="#f5b041" stroke-width="1"/>
+      <text font-family="'Rajdhani', sans-serif" font-size="14" font-weight="800" fill="#f5b041" x="15" y="25">TIẾP NHẬN YÊU CẦU &amp; CONFIG</text>
+      <text font-family="'Inter', sans-serif" font-size="12" fill="#cbd5e1" x="15" y="55">• src/config.py: 11 trường cấu hình</text>
+      <text font-family="'Inter', sans-serif" font-size="12" fill="#cbd5e1" x="15" y="80">• LCK Season 2026 Split 1 rules</text>
+      <text font-family="'Inter', sans-serif" font-size="12" fill="#cbd5e1" x="15" y="105">• src/cli.py show-config</text>
+      <text font-family="'Inter', sans-serif" font-size="12" fill="#cbd5e1" x="15" y="130">• Hợp đồng dữ liệu không rò rỉ</text>
+      <text font-family="'Fira Code', monospace" font-size="11" fill="#ffd67a" x="15" y="240">Core: M01, M02, M03, M04</text>
+    </g>
+
+    <g transform="translate(320, 55)">
+      <rect width="280" height="260" rx="6" fill="#0b0e26" stroke="#00f0ff" stroke-width="1"/>
+      <text font-family="'Rajdhani', sans-serif" font-size="14" font-weight="800" fill="#00f0ff" x="15" y="25">ETL CRAWLER &amp; SQLITE</text>
+      <text font-family="'Inter', sans-serif" font-size="12" fill="#cbd5e1" x="15" y="55">• src/data/crawler.py: Gol.gg scrape</text>
+      <text font-family="'Inter', sans-serif" font-size="12" fill="#cbd5e1" x="15" y="80">• Leaguepedia match schedule API</text>
+      <text font-family="'Inter', sans-serif" font-size="12" fill="#cbd5e1" x="15" y="105">• src/storage/schema.sql: 5 bảng</text>
+      <text font-family="'Inter', sans-serif" font-size="12" fill="#cbd5e1" x="15" y="130">• data/lol_analytics.db warehouse</text>
+      <text font-family="'Fira Code', monospace" font-size="11" fill="#ffd67a" x="15" y="240">Core: M06, M08, M11, M12</text>
+    </g>
+
+    <g transform="translate(620, 55)">
+      <rect width="280" height="260" rx="6" fill="#0b0e26" stroke="#b845ff" stroke-width="1"/>
+      <text font-family="'Rajdhani', sans-serif" font-size="14" font-weight="800" fill="#b845ff" x="15" y="25">PANDAS EDA &amp; KIỂM ĐỊNH</text>
+      <text font-family="'Inter', sans-serif" font-size="12" fill="#cbd5e1" x="15" y="55">• src/analysis/pandas_eda.py: QA</text>
+      <text font-family="'Inter', sans-serif" font-size="12" fill="#cbd5e1" x="15" y="80">• Báo cáo EDA: eda_summary.txt</text>
+      <text font-family="'Inter', sans-serif" font-size="12" fill="#cbd5e1" x="15" y="105">• src/analysis/stats.py: Chi-Square</text>
+      <text font-family="'Inter', sans-serif" font-size="12" fill="#cbd5e1" x="15" y="130">• Khoảng tin cậy Wilson tỷ lệ thắng</text>
+      <text font-family="'Fira Code', monospace" font-size="11" fill="#ffd67a" x="15" y="240">Core: M15, M16, M18, M21</text>
+    </g>
+
+    <g transform="translate(920, 55)">
+      <rect width="280" height="260" rx="6" fill="#0b0e26" stroke="#00e676" stroke-width="1"/>
+      <text font-family="'Rajdhani', sans-serif" font-size="14" font-weight="800" fill="#00e676" x="15" y="25">WALK-FORWARD ML ENGINE</text>
+      <text font-family="'Inter', sans-serif" font-size="12" fill="#cbd5e1" x="15" y="55">• src/modeling/predictor.py: LogReg</text>
+      <text font-family="'Inter', sans-serif" font-size="12" fill="#cbd5e1" x="15" y="80">• Walk-forward cross validation</text>
+      <text font-family="'Inter', sans-serif" font-size="12" fill="#cbd5e1" x="15" y="105">• src/modeling/metrics.py: Brier score</text>
+      <text font-family="'Inter', sans-serif" font-size="12" fill="#cbd5e1" x="15" y="130">• Scikit-learn probability calibration</text>
+      <text font-family="'Fira Code', monospace" font-size="11" fill="#ffd67a" x="15" y="240">Core: M25, M28, M32, M36</text>
+    </g>
+
+    <g transform="translate(1220, 55)">
+      <rect width="273" height="260" rx="6" fill="#0b0e26" stroke="#00d2ff" stroke-width="1"/>
+      <text font-family="'Rajdhani', sans-serif" font-size="14" font-weight="800" fill="#00d2ff" x="15" y="25">ORCHESTRATION &amp; SERVING</text>
+      <text font-family="'Inter', sans-serif" font-size="12" fill="#cbd5e1" x="15" y="55">• scripts/daily_update.ps1 automated</text>
+      <text font-family="'Inter', sans-serif" font-size="12" fill="#cbd5e1" x="15" y="80">• src/dashboard/app.py: Streamlit</text>
+      <text font-family="'Inter', sans-serif" font-size="12" fill="#cbd5e1" x="15" y="105">• python -m src.cli freshness</text>
+      <text font-family="'Inter', sans-serif" font-size="12" fill="#cbd5e1" x="15" y="130">• python -m src.cli quality-check</text>
+      <text font-family="'Fira Code', monospace" font-size="11" fill="#ffd67a" x="15" y="240">Core: M39, M40, M43, M44, M47</text>
+    </g>
+  </g>
+</svg>

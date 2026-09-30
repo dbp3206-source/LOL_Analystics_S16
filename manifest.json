@@ -1,0 +1,85 @@
+{
+  "name": "LoL Analytics S16 · Study Atlas",
+  "short_name": "LoL Analytics",
+  "description": "League of Legends Season 16 · Data Science & Analytics Study Atlas — Full pedagogical guide with interactive modules, VS Code code walkthroughs, 28 DS techniques, and real terminal outputs.",
+  "start_url": "./LOL_Analytics_Study_Atlas_Master.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0a0a1a",
+  "theme_color": "#7c3aed",
+  "lang": "vi",
+  "categories": ["education", "productivity"],
+  "icons": [
+    {
+      "src": "assets/icons/icon-72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/icon-96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/icon-144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/icon-152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/icon-384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Phase A · Thu thập dữ liệu",
+      "short_name": "Phase A",
+      "url": "./LOL_Analytics_Study_Atlas_Master.html#phase-A",
+      "description": "Data Collection modules"
+    },
+    {
+      "name": "Phase B · Xử lý dữ liệu",
+      "short_name": "Phase B",
+      "url": "./LOL_Analytics_Study_Atlas_Master.html#phase-B",
+      "description": "Data Processing modules"
+    },
+    {
+      "name": "Phase F · Báo cáo & Streamlit",
+      "short_name": "Phase F",
+      "url": "./LOL_Analytics_Study_Atlas_Master.html#phase-F",
+      "description": "Reporting & Dashboard modules"
+    }
+  ],
+  "screenshots": [],
+  "prefer_related_applications": false
+}

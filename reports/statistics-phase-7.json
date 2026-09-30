@@ -1,6 +1,6 @@
 {
   "phase": "Phase 7 — descriptive and introductory inferential statistics",
-  "run_at": "2026-09-07T17:04:44.265664+00:00",
+  "run_at": "2026-09-29T15:47:27.030011+00:00",
   "season": "S16",
   "scope": "Official S16 games for the ten primary LCK teams, including eligible international tournaments.",
   "methods": [
@@ -11,159 +11,41 @@
   ],
   "dependencies": {
     "scipy": true,
-    "statsmodels": true
+    "statsmodels": false
   },
-  "missing_optional_packages": [],
-  "inferential_status": "ok",
+  "missing_optional_packages": [
+    "statsmodels"
+  ],
+  "inferential_status": "partial",
   "teams": [
-    {
-      "team_id": 2800,
-      "canonical_name": "BNK FearX",
-      "games": 129,
-      "wins": 60,
-      "confidence_interval": {
-        "successes": 60,
-        "trials": 129,
-        "rate": 0.46511627906976744,
-        "confidence": 0.95,
-        "ci_low": 0.38130031118129837,
-        "ci_high": 0.550949755327321,
-        "small_sample_warning": false
-      }
-    },
-    {
-      "team_id": 2801,
-      "canonical_name": "DN SOOPers",
-      "games": 120,
-      "wins": 47,
-      "confidence_interval": {
-        "successes": 47,
-        "trials": 120,
-        "rate": 0.39166666666666666,
-        "confidence": 0.95,
-        "ci_low": 0.30899196972332565,
-        "ci_high": 0.4810621830007269,
-        "small_sample_warning": false
-      }
-    },
-    {
-      "team_id": 2802,
-      "canonical_name": "Dplus KIA",
-      "games": 149,
-      "wins": 81,
-      "confidence_interval": {
-        "successes": 81,
-        "trials": 149,
-        "rate": 0.5436241610738255,
-        "confidence": 0.95,
-        "ci_low": 0.4635544689137371,
-        "ci_high": 0.6215009872452554,
-        "small_sample_warning": false
-      }
-    },
-    {
-      "team_id": 2804,
-      "canonical_name": "Gen.G",
-      "games": 128,
-      "wins": 89,
-      "confidence_interval": {
-        "successes": 89,
-        "trials": 128,
-        "rate": 0.6953125,
-        "confidence": 0.95,
-        "ci_low": 0.6108489916080531,
-        "ci_high": 0.7683943848476078,
-        "small_sample_warning": false
-      }
-    },
-    {
-      "team_id": 2808,
-      "canonical_name": "HANJIN BRION",
-      "games": 108,
-      "wins": 43,
-      "confidence_interval": {
-        "successes": 43,
-        "trials": 108,
-        "rate": 0.39814814814814814,
-        "confidence": 0.95,
-        "ci_low": 0.31085681194636683,
-        "ci_high": 0.49243616874274654,
-        "small_sample_warning": false
-      }
-    },
     {
       "team_id": 2805,
       "canonical_name": "Hanwha Life Esports",
-      "games": 139,
-      "wins": 87,
+      "games": 1,
+      "wins": 1,
       "confidence_interval": {
-        "successes": 87,
-        "trials": 139,
-        "rate": 0.6258992805755396,
+        "successes": 1,
+        "trials": 1,
+        "rate": 1.0,
         "confidence": 0.95,
-        "ci_low": 0.5430875016687685,
-        "ci_high": 0.7019393994071633,
-        "small_sample_warning": false
-      }
-    },
-    {
-      "team_id": 2806,
-      "canonical_name": "KT Rolster",
-      "games": 106,
-      "wins": 48,
-      "confidence_interval": {
-        "successes": 48,
-        "trials": 106,
-        "rate": 0.4528301886792453,
-        "confidence": 0.95,
-        "ci_low": 0.3613772319957925,
-        "ci_high": 0.547582462209252,
-        "small_sample_warning": false
-      }
-    },
-    {
-      "team_id": 2803,
-      "canonical_name": "Kiwoom DRX",
-      "games": 112,
-      "wins": 45,
-      "confidence_interval": {
-        "successes": 45,
-        "trials": 112,
-        "rate": 0.4017857142857143,
-        "confidence": 0.95,
-        "ci_low": 0.3157058067186338,
-        "ci_high": 0.49437945788380167,
-        "small_sample_warning": false
-      }
-    },
-    {
-      "team_id": 2807,
-      "canonical_name": "Nongshim RedForce",
-      "games": 105,
-      "wins": 43,
-      "confidence_interval": {
-        "successes": 43,
-        "trials": 105,
-        "rate": 0.4095238095238095,
-        "confidence": 0.95,
-        "ci_low": 0.3202789903760396,
-        "ci_high": 0.5051551759254184,
-        "small_sample_warning": false
+        "ci_low": 0.20654931437723745,
+        "ci_high": 1.0,
+        "small_sample_warning": true
       }
     },
     {
       "team_id": 2809,
       "canonical_name": "T1",
-      "games": 152,
-      "wins": 96,
+      "games": 1,
+      "wins": 0,
       "confidence_interval": {
-        "successes": 96,
-        "trials": 152,
-        "rate": 0.631578947368421,
+        "successes": 0,
+        "trials": 1,
+        "rate": 0.0,
         "confidence": 0.95,
-        "ci_low": 0.5525318328142549,
-        "ci_high": 0.70413927577709,
-        "small_sample_warning": false
+        "ci_low": 0.0,
+        "ci_high": 0.7934506856227626,
+        "small_sample_warning": true
       }
     }
   ],
@@ -180,32 +62,75 @@
     ],
     "observed": [
       [
-        265,
-        363
+        0,
+        1
       ],
       [
-        344,
-        276
+        1,
+        0
       ]
     ],
     "expected": [
       [
-        306.4519230769231,
-        321.5480769230769
+        0.5,
+        0.5
       ],
       [
-        302.5480769230769,
-        317.4519230769231
+        0.5,
+        0.5
       ]
     ],
-    "chi_square": 21.514084673832315,
+    "chi_square": 0.0,
     "degrees_of_freedom": 1,
-    "p_value": 3.5123942134008174e-06,
-    "assumption_expected_at_least_5": true,
+    "p_value": 1.0,
+    "assumption_expected_at_least_5": false,
     "assumption_independent_observations": false,
     "interpretation": "Expected counts đạt yêu cầu nhưng quan sát không độc lập vì mỗi game tạo một cặp blue/red đối nghịch. Chỉ dùng p-value này để minh họa quy trình kiểm tra assumption, không dùng làm kết luận xác nhận."
   },
-  "selected_pair_tests": null,
+  "selected_pair_tests": {
+    "team_a": {
+      "team_id": 2809,
+      "name": "T1"
+    },
+    "team_b": {
+      "team_id": 2805,
+      "name": "Hanwha Life Esports"
+    },
+    "descriptive_win_rate_difference": {
+      "group_a": {
+        "successes": 0,
+        "trials": 1,
+        "rate": 0.0,
+        "confidence": 0.95,
+        "ci_low": 0.0,
+        "ci_high": 0.7934506856227626,
+        "small_sample_warning": true
+      },
+      "group_b": {
+        "successes": 1,
+        "trials": 1,
+        "rate": 1.0,
+        "confidence": 0.95,
+        "ci_low": 0.20654931437723745,
+        "ci_high": 1.0,
+        "small_sample_warning": true
+      },
+      "rate_difference_a_minus_b": -1.0
+    },
+    "two_proportion_z_test": {
+      "status": "skipped",
+      "reason": "Thiếu Statsmodels hoặc một đội chưa có trận."
+    },
+    "welch_t_test_gdm": {
+      "status": "skipped",
+      "reason": "Thiếu SciPy hoặc mỗi đội chưa có ít nhất hai giá trị GDM.",
+      "samples": {
+        "team_a": 0,
+        "team_b": 0
+      },
+      "cohens_d": null
+    }
+  },
   "limitations": [
     "Các kiểm định mang tính quan sát/thăm dò, không chứng minh quan hệ nhân quả.",
     "P-value không phải xác suất thắng và không thay thế mô hình dự đoán/backtest.",

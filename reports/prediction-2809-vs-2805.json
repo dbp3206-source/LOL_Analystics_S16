@@ -1,0 +1,68 @@
+{
+  "fixture_id": "s16-2809-vs-2805-2026-09-29",
+  "prediction_timestamp": "2026-09-29T15:47:27.753824+00:00",
+  "prediction_context": "hypothetical",
+  "fixture_timestamp": null,
+  "feature_cutoff_exclusive": "2026-09-29",
+  "data_freshness": {
+    "status": "stale_or_missing",
+    "last_successful_update": null,
+    "age_hours": null,
+    "max_age_hours": 24
+  },
+  "data_cutoff": "2026-08-23",
+  "feature_values": {
+    "posterior_win_rate": 0.3333333333333333,
+    "avg_gpm": null,
+    "avg_gdm": null,
+    "combat_rate": 0.23076923076923078,
+    "first_tower_rate": null
+  },
+  "model_version": "empirical-strength-v1",
+  "feature_version": "s16-win-rate-h2h-economy-v3-gdm-per-minute",
+  "status": "insufficient_data",
+  "sample_size_total": 2,
+  "small_sample_warning": true,
+  "team_a": {
+    "team_id": 2809,
+    "team": "T1",
+    "games": 1,
+    "wins": 0,
+    "losses": 1,
+    "raw_win_rate": 0.0,
+    "posterior_win_rate": 0.3333333333333333,
+    "uncertainty_90": 0.38773021835062355,
+    "avg_gpm": null,
+    "avg_gdm": null,
+    "avg_kills": 5.0,
+    "avg_deaths": 19.0,
+    "first_tower_rate": 0.0,
+    "data_cutoff": "2026-08-23"
+  },
+  "team_b": {
+    "team_id": 2805,
+    "team": "Hanwha Life Esports",
+    "games": 1,
+    "wins": 1,
+    "losses": 0,
+    "raw_win_rate": 1.0,
+    "posterior_win_rate": 0.6666666666666666,
+    "uncertainty_90": 0.38773021835062355,
+    "avg_gpm": null,
+    "avg_gdm": null,
+    "avg_kills": 19.0,
+    "avg_deaths": 5.0,
+    "first_tower_rate": 0.0,
+    "data_cutoff": "2026-08-23"
+  },
+  "head_to_head": {
+    "games": 1,
+    "wins_team_a": 0,
+    "wins_team_b": 1,
+    "team_a_rate": 0.0
+  },
+  "probability_team_a": 0.2846153846153846,
+  "probability_team_b": 0.7153846153846154,
+  "predicted_winner_team_id": 2805,
+  "confidence_note": "Transparent, uncalibrated educational baseline; interpret with sample size and backtest metrics."
+}

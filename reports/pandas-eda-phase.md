@@ -1,8 +1,8 @@
 # Pandas EDA Upgrade
 
-- Run at: `2026-09-07T17:29:43.195865+00:00`
+- Run at: `2026-09-29T15:47:22.889360+00:00`
 - Season: `S16` from `2026-01-01`
-- Team-game rows: `1248`; player-game rows: `5397`
+- Team-game rows: `2`; player-game rows: `2`
 
 ## Workflow
 

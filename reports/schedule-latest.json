@@ -8,8 +8,8 @@
     "https://lol.fandom.com/api.php?action=parse&page=LCK%2F2026_Season%2FSeason_Play-In&prop=text&format=json",
     "https://lol.fandom.com/api.php?action=parse&page=LCK%2F2026_Season%2FSeason_Playoffs&prop=text&format=json"
   ],
-  "collected_at": "2026-09-07T17:05:26.088856+00:00",
-  "fixtures_seen": 3,
-  "fixtures_upserted": 3,
+  "collected_at": "2026-09-29T15:07:45.083802+00:00",
+  "fixtures_seen": 0,
+  "fixtures_upserted": 0,
   "fixtures_skipped": 0
 }

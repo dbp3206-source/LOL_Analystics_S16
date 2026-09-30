@@ -2,7 +2,7 @@
 
 - Season filter: `S16`
 - Calendar start: `2026-01-01`
-- Directory rows discovered: `326`
+- Directory rows discovered: `329`
 - Statistics source: https://gol.gg/esports/home/
 - robots.txt status: `200`; requested paths disallowed: `False`
 
@@ -18,5 +18,5 @@
 
 | Team | Raw rows | Included from 2026 | Excluded pre-2026 |
 |---|---:|---:|---:|
-| Hanwha Life Esports | 151 | 134 | 17 |
-| T1 | 165 | 147 | 18 |
+| Hanwha Life Esports | 168 | 151 | 17 |
+| T1 | 183 | 165 | 18 |
