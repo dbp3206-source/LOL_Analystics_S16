@@ -3,54 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#071a2a">
+<meta http-equiv="refresh" content="0; url=./LOL_Analytics_Study_Atlas_Master.html">
 <title>LoL Analytics S16 · Study Atlas</title>
 <style>
-html,body{margin:0;min-height:100%;background:#071a2a;color:#e8f5ff;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
-.boot{min-height:100vh;display:grid;place-items:center;padding:24px;text-align:center}
-.card{width:min(560px,calc(100vw - 48px));box-sizing:border-box;padding:28px;border:1px solid #1f5b73;border-radius:18px;background:#0b2436;box-shadow:0 20px 60px #0007}
-.spin{width:44px;height:44px;border:4px solid #163e55;border-top-color:#5eead4;border-radius:50%;margin:0 auto 18px;animation:s 1s linear infinite}
-@keyframes s{to{transform:rotate(360deg)}}h1{font-size:22px;margin:0 0 8px}p{opacity:.78;line-height:1.55}a{color:#67e8f9}
+html,body{margin:0;min-height:100%;display:grid;place-items:center;background:#071a2a;color:#e8f5ff;font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+main{padding:28px;text-align:center;max-width:620px}a{color:#5eead4}
 </style>
 </head>
 <body>
-<div class="boot"><div class="card"><div class="spin"></div>
-<h1>Đang tải Study Atlas v1.1</h1>
-<p>Khôi phục giao diện mobile, sơ đồ, code viewer và trạng thái học…</p>
-<p id="status"></p></div></div>
-<script>
-(async()=>{
-  const status=document.getElementById('status');
-  const parts=[
-    'assets/study-atlas-v11/payload.part1.txt',
-    'assets/study-atlas-v11/payload.part2.txt',
-    'assets/study-atlas-v11/payload.part3.txt',
-    'assets/study-atlas-v11/payload.part4.txt'
-  ];
-  try{
-    status.textContent='Đang tải dữ liệu…';
-    const texts=await Promise.all(parts.map(async p=>{
-      const r=await fetch(p,{cache:'no-cache'});
-      if(!r.ok) throw new Error(p+' · HTTP '+r.status);
-      return r.text();
-    }));
-    status.textContent='Đang giải nén…';
-    const raw=atob(texts.join('').replace(/\s/g,''));
-    const bytes=new Uint8Array(raw.length);
-    for(let i=0;i<raw.length;i++) bytes[i]=raw.charCodeAt(i);
-    let ds;
-    try{ds=new DecompressionStream('brotli')}
-    catch(e){throw new Error('Trình duyệt chưa hỗ trợ Brotli. Hãy cập nhật Chrome/Edge mới nhất.')}
-    const stream=new Blob([bytes]).stream().pipeThrough(ds);
-    const html=await new Response(stream).text();
-    status.textContent='Đang mở bài học…';
-    document.open(); document.write(html); document.close();
-  }catch(err){
-    console.error(err);
-    document.querySelector('.card').innerHTML=
-      '<h1>Không thể tải Study Atlas</h1><p>'+String(err.message||err)+'</p>'+
-      '<p>Hãy tải lại trang hoặc mở bằng Chrome mới nhất.</p>';
-  }
-})();
-</script>
-</body></html>
+<main>
+<h1>Đang mở LoL Analytics Study Atlas…</h1>
+<p>Nếu trang không tự chuyển, <a href="./LOL_Analytics_Study_Atlas_Master.html">bấm vào đây</a>.</p>
+</main>
+</body>
+</html>

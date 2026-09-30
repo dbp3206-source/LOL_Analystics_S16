@@ -1,23 +1,22 @@
-name: Deploy LoL Analytics Study Atlas to GitHub Pages
+name: Deploy Study Atlas v1.1 to GitHub Pages
 
 on:
   push:
-    branches: [ main, master ]
-  workflow_dispatch:    # Allow manual trigger from GitHub UI
+    branches: [ main ]
+  workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
   build:
-    name: Build & Package
+    name: Build exact v1.1 site
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -27,61 +26,72 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'pip'
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt || true
+      - name: Install Brotli decoder for build only
+        run: python -m pip install --disable-pip-version-check brotli
 
-      - name: Build master HTML
-        run: python build_master_html_final.py
-        working-directory: ${{ github.workspace }}
-
-      - name: Verify build output
+      - name: Reconstruct exact Study Atlas v1.1
+        shell: bash
         run: |
-          echo "=== Build Verification ==="
-          ls -lh LOL_Analytics_Study_Atlas_Master.html
-          python -c "
-          with open('LOL_Analytics_Study_Atlas_Master.html') as f:
-              html = f.read()
-          checks = {
-              'lightboxModal': 'lightboxModal' in html,
-              'ENTERPRISE_SVG_RAW': 'ENTERPRISE_SVG_RAW' in html,
-              'touchstart': 'touchstart' in html,
-              'manifest_link': 'manifest.json' in html,
-              'service_worker': 'service-worker.js' in html,
-          }
-          for k, v in checks.items():
-              print(f'  [{\"PASS\" if v else \"FAIL\"}] {k}')
-          failed = [k for k, v in checks.items() if not v]
-          if failed:
-              print(f'FAILED checks: {failed}')
-              exit(1)
-          print('All checks passed!')
-          "
+          python - <<'PY'
+          from pathlib import Path
+          import base64
+          import hashlib
+          import shutil
+          import brotli
 
-      - name: Prepare GitHub Pages directory
-        run: |
-          mkdir -p _site
-          # Copy main HTML as index.html for root URL access
-          cp LOL_Analytics_Study_Atlas_Master.html _site/index.html
-          cp LOL_Analytics_Study_Atlas_Master.html _site/LOL_Analytics_Study_Atlas_Master.html
-          # Copy PWA files
-          cp manifest.json _site/manifest.json
-          cp service-worker.js _site/service-worker.js
-          # Copy assets
-          cp -r assets _site/assets 2>/dev/null || true
-          # Create GitHub Pages configuration
-          echo "lol-analytics-s16" > _site/CNAME 2>/dev/null || true
-          echo "" > _site/.nojekyll
-          # Create a simple 404 redirect
-          cp _site/index.html _site/404.html
+          root = Path(".")
+          payload_dir = root / "assets" / "study-atlas-v11"
+          parts = [
+              payload_dir / "payload.part1.txt",
+              payload_dir / "payload.part2.txt",
+              payload_dir / "payload.part3.txt",
+              payload_dir / "payload.part4.txt",
+          ]
 
-      - name: Show site structure
+          encoded = "".join(p.read_text(encoding="ascii").strip() for p in parts)
+          compressed = base64.b64decode(encoded)
+          html = brotli.decompress(compressed)
+
+          expected_sha256 = "eb0b3308b40ef49c554957c8f394a77bb0ab194f20776c8530c738fc932405ee"
+          actual_sha256 = hashlib.sha256(html).hexdigest()
+          if actual_sha256 != expected_sha256:
+              raise SystemExit(
+                  f"Payload integrity check failed: {actual_sha256} != {expected_sha256}"
+              )
+
+          site = root / "_site"
+          if site.exists():
+              shutil.rmtree(site)
+          site.mkdir(parents=True)
+
+          # Serve the real HTML directly. Browser no longer needs Brotli support.
+          (site / "index.html").write_bytes(html)
+          (site / "LOL_Analytics_Study_Atlas_V1_1_Mobile.html").write_bytes(html)
+          (site / "404.html").write_bytes(html)
+
+          for name in ("manifest.json", "service-worker.js"):
+              src = root / name
+              if src.exists():
+                  shutil.copy2(src, site / name)
+
+          assets = root / "assets"
+          if assets.exists():
+              shutil.copytree(assets, site / "assets", dirs_exist_ok=True)
+
+          (site / ".nojekyll").write_text("", encoding="utf-8")
+
+          print("Study Atlas bytes:", len(html))
+          print("SHA256:", actual_sha256)
+          print("Built:", site / "index.html")
+          PY
+
+      - name: Verify output
         run: |
-          echo "=== Site Structure ==="
-          find _site -type f | sort
-          echo "=== File Sizes ==="
-          du -sh _site/*
+          test -s _site/index.html
+          test $(wc -c < _site/index.html) -gt 6000000
+          grep -q "LoL Analytics" _site/index.html
+          echo "Direct HTML build verified"
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
