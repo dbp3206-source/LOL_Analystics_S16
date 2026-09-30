@@ -1,8 +1,11 @@
-name: Deploy Study Atlas v1.1 to GitHub Pages
+name: Deploy Study Atlas V2 to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
+    paths:
+      - "assets/study-atlas-v2/**"
+      - ".github/workflows/deploy.yml"
   workflow_dispatch:
 
 permissions:
@@ -11,87 +14,33 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  group: pages
+  cancel-in-progress: true
 
 jobs:
   build:
-    name: Build exact v1.1 site
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Install Brotli decoder for build only
-        run: python -m pip install --disable-pip-version-check brotli
-
-      - name: Reconstruct exact Study Atlas v1.1
+      - name: Build static V2 site
         shell: bash
         run: |
-          python - <<'PY'
-          from pathlib import Path
-          import base64
-          import hashlib
-          import shutil
-          import brotli
+          rm -rf _site
+          mkdir -p _site
+          cat assets/study-atlas-v2/part*.html > _site/index.html
+          cp _site/index.html _site/404.html
+          touch _site/.nojekyll
 
-          root = Path(".")
-          payload_dir = root / "assets" / "study-atlas-v11"
-          parts = [
-              payload_dir / "payload.part1.txt",
-              payload_dir / "payload.part2.txt",
-              payload_dir / "payload.part3.txt",
-              payload_dir / "payload.part4.txt",
-          ]
-
-          encoded = "".join(p.read_text(encoding="ascii").strip() for p in parts)
-          compressed = base64.b64decode(encoded)
-          html = brotli.decompress(compressed)
-
-          expected_sha256 = "eb0b3308b40ef49c554957c8f394a77bb0ab194f20776c8530c738fc932405ee"
-          actual_sha256 = hashlib.sha256(html).hexdigest()
-          if actual_sha256 != expected_sha256:
-              raise SystemExit(
-                  f"Payload integrity check failed: {actual_sha256} != {expected_sha256}"
-              )
-
-          site = root / "_site"
-          if site.exists():
-              shutil.rmtree(site)
-          site.mkdir(parents=True)
-
-          # Serve the real HTML directly. Browser no longer needs Brotli support.
-          (site / "index.html").write_bytes(html)
-          (site / "LOL_Analytics_Study_Atlas_V1_1_Mobile.html").write_bytes(html)
-          (site / "404.html").write_bytes(html)
-
-          for name in ("manifest.json", "service-worker.js"):
-              src = root / name
-              if src.exists():
-                  shutil.copy2(src, site / name)
-
-          assets = root / "assets"
-          if assets.exists():
-              shutil.copytree(assets, site / "assets", dirs_exist_ok=True)
-
-          (site / ".nojekyll").write_text("", encoding="utf-8")
-
-          print("Study Atlas bytes:", len(html))
-          print("SHA256:", actual_sha256)
-          print("Built:", site / "index.html")
-          PY
-
-      - name: Verify output
-        run: |
           test -s _site/index.html
-          test $(wc -c < _site/index.html) -gt 6000000
-          grep -q "LoL Analytics" _site/index.html
-          echo "Direct HTML build verified"
+          test $(wc -c < _site/index.html) -gt 6500000
+          grep -q "BUILD LAB" _site/index.html
+          grep -q "PROJECT-DERIVED LAB" _site/index.html
+          echo "Study Atlas V2 verified: $(wc -c < _site/index.html) bytes"
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
@@ -99,7 +48,6 @@ jobs:
           path: _site
 
   deploy:
-    name: Deploy to GitHub Pages
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
